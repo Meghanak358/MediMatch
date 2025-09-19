@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Doctors - MediMatch</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #4a6fa5;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+    .doctor-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .doctor-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .doctor-info h3 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: #333;
+    }
+    .specialty {
+      color: #4a6fa5;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+    .doctor-info p {
+      margin: 5px 0;
+      color: #555;
+    }
+    .back-home {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .back-home a {
+      text-decoration: none;
+      color: #4a6fa5;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h2><i class="fas fa-user-md"></i> Our Doctors</h2>
+  <a href="home.html"><i class="fas fa-home"></i> Home</a>
+</header>
+
+<div class="container">
+
+  <!-- Doctor 1 -->
+  <div class="doctor-card">
+    <img src="https://randomuser.me/api/portraits/women/21.jpg" class="doctor-photo" alt="Dr. Ayesha Khan">
+    <div class="doctor-info">
+      <h3>Dr. Ayesha Khan</h3>
+      <p class="specialty">Cardiologist</p>
+      <p><strong>Experience:</strong> 12+ years</p>
+      <p><strong>Hospital:</strong> Fortis Heart Institute, Delhi</p>
+      <p><strong>Address:</strong> B-22, Fortis Lane, Delhi - 110001</p>
+    </div>
+  </div>
+
+  <!-- Doctor 2 -->
+  <div class="doctor-card">
+    <img src="https://randomuser.me/api/portraits/men/33.jpg" class="doctor-photo" alt="Dr. Ramesh Iyer">
+    <div class="doctor-info">
+      <h3>Dr. Ramesh Iyer</h3>
+      <p class="specialty">Dermatologist</p>
+      <p><strong>Experience:</strong> 10+ years</p>
+      <p><strong>Hospital:</strong> SkinCare Clinic, Bangalore</p>
+      <p><strong>Address:</strong> #5, MG Road, Bangalore - 560001</p>
+    </div>
+  </div>
+
+  <!-- Doctor 3 -->
+  <div class="doctor-card">
+    <img src="https://randomuser.me/api/portraits/women/58.jpg" class="doctor-photo" alt="Dr. Priya Mehta">
+    <div class="doctor-info">
+      <h3>Dr. Priya Mehta</h3>
+      <p class="specialty">Pediatrician</p>
+      <p><strong>Experience:</strong> 8+ years</p>
+      <p><strong>Hospital:</strong> Rainbow Children's Hospital, Mumbai</p>
+      <p><strong>Address:</strong> Andheri West, Mumbai - 400058</p>
+    </div>
+  </div>
+
+  <!-- Doctor 4 -->
+  <div class="doctor-card">
+    <img src="https://randomuser.me/api/portraits/men/65.jpg" class="doctor-photo" alt="Dr. Arjun Nair">
+    <div class="doctor-info">
+      <h3>Dr. Arjun Nair</h3>
+      <p class="specialty">Neurologist</p>
+      <p><strong>Experience:</strong> 15+ years</p>
+      <p><strong>Hospital:</strong> Apollo Hospitals, Hyderabad</p>
+      <p><strong>Address:</strong> Jubilee Hills, Hyderabad - 500033</p>
+    </div>
+  </div>
+
+  <!-- Doctor 5 -->
+  <div class="doctor-card">
+    <img src="https://randomuser.me/api/portraits/women/12.jpg" class="doctor-photo" alt="Dr. Neha Sharma">
+    <div class="doctor-info">
+      <h3>Dr. Neha Sharma</h3>
+      <p class="specialty">Psychiatrist</p>
+      <p><strong>Experience:</strong> 9+ years</p>
+      <p><strong>Hospital:</strong> MindWell Clinic, Pune</p>
+      <p><strong>Address:</strong> FC Road, Pune - 411004</p>
+    </div>
+  </div>
+
+  <!-- Doctor 6 -->
+  <div class="doctor-card">
+    <img src="https://randomuser.me/api/portraits/men/41.jpg" class="doctor-photo" alt="Dr. Sanjay Deshmukh">
+    <div class="doctor-info">
+      <h3>Dr. Sanjay Deshmukh</h3>
+      <p class="specialty">Orthopedic Surgeon</p>
+      <p><strong>Experience:</strong> 14+ years</p>
+      <p><strong>Hospital:</strong> Manipal Hospital, Bangalore</p>
+      <p><strong>Address:</strong> HAL Old Airport Rd, Bangalore - 560017</p>
+    </div>
+  </div>
+
+  <!-- Doctor 7 -->
+  <div class="doctor-card">
+    <img src="https://randomuser.me/api/portraits/women/34.jpg" class="doctor-photo" alt="Dr. Meenakshi Rao">
+    <div class="doctor-info">
+      <h3>Dr. Meenakshi Rao</h3>
+      <p class="specialty">ENT Specialist</p>
+      <p><strong>Experience:</strong> 7+ years</p>
+      <p><strong>Hospital:</strong> Medanta Hospital, Gurgaon</p>
+      <p><strong>Address:</strong> Sector 38, Gurgaon - 122001</p>
+    </div>
+  </div>
+
+  <!-- Doctor 8 -->
+  <div class="doctor-card">
+    <img src="https://randomuser.me/api/portraits/men/72.jpg" class="doctor-photo" alt="Dr. Karan Verma">
+    <div class="doctor-info">
+      <h3>Dr. Karan Verma</h3>
+      <p class="specialty">General Physician</p>
+      <p><strong>Experience:</strong> 6+ years</p>
+      <p><strong>Hospital:</strong> CarePlus Clinic, Jaipur</p>
+      <p><strong>Address:</strong> Vaishali Nagar, Jaipur - 302021</p>
+    </div>
+  </div>
+
+  <!-- Doctor 9 -->
+  <div class="doctor-card">
+    <img src="https://randomuser.me/api/portraits/women/71.jpg" class="doctor-photo" alt="Dr. Anjali Desai">
+    <div class="doctor-info">
+      <h3>Dr. Anjali Desai</h3>
+      <p class="specialty">Oncologist</p>
+      <p><strong>Experience:</strong> 11+ years</p>
+      <p><strong>Hospital:</strong> Tata Memorial Hospital, Mumbai</p>
+      <p><strong>Address:</strong> Parel, Mumbai - 400012</p>
+    </div>
+  </div>
+
+  <!-- Doctor 10 -->
+  <div class="doctor-card">
+    <img src="https://randomuser.me/api/portraits/men/23.jpg" class="doctor-photo" alt="Dr. Rohit Sinha">
+    <div class="doctor-info">
+      <h3>Dr. Rohit Sinha</h3>
+      <p class="specialty">Pulmonologist</p>
+      <p><strong>Experience:</strong> 10+ years</p>
+      <p><strong>Hospital:</strong> BreathoCare, Lucknow</p>
+      <p><strong>Address:</strong> Hazratganj, Lucknow - 226001</p>
+    </div>
+  </div>
+
+  <!-- Doctor 11–15 -->
+  <!-- (You can copy/paste more blocks using similar format with different photos & info) -->
+
+  <div class="doctor-card">
+    <img src="https://randomuser.me/api/portraits/women/25.jpg" class="doctor-photo" alt="Dr. Kavita Nanda">
+    <div class="doctor-info">
+      <h3>Dr. Kavita Nanda</h3>
+      <p class="specialty">Gynecologist</p>
+      <p><strong>Experience:</strong> 13+ years</p>
+      <p><strong>Hospital:</strong> CloudNine Hospitals, Chennai</p>
+      <p><strong>Address:</strong> Anna Nagar, Chennai - 600040</p>
+    </div>
+  </div>
+
+  <!-- Add up to Doctor 15 similarly -->
+
+  <div class="back-home">
+    <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+  </div>
+</div>
+
+</body>
+</html>

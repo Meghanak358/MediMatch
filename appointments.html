@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Appointment - MediMatch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f8fa; }
+        header { background: #007BFF; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        header a { color: white; text-decoration: none; font-weight: bold; }
+        main { padding: 2rem; }
+        .appointment-step { display: none; }
+        .appointment-step.active { display: block; }
+        .btn { padding: 10px 15px; margin-top: 10px; cursor: pointer; border: none; border-radius: 5px; }
+        .btn-primary { background: #007BFF; color: white; }
+        .btn-outline { background: white; color: #007BFF; border: 1px solid #007BFF; }
+        select, input { padding: 10px; width: 100%; margin-top: 5px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h2><i class="fas fa-calendar-check"></i> Appointment Planner</h2>
+        <a href="home.html"><i class="fas fa-home"></i> Home</a>
+    </header>
+
+    <main>
+        <div class="tab-content" id="appointment-planner">
+            <!-- Step 1: Select Specialty -->
+            <div class="appointment-step active" id="step-specialty">
+                <h3><i class="fas fa-certificate"></i> Select Specialty</h3>
+                <select id="appointment-specialty" required>
+                    <option value="">Select Specialty</option>
+                    <option value="Cardiologist">Cardiologist</option>
+                    <option value="Dermatologist">Dermatologist</option>
+                    <option value="Neurologist">Neurologist</option>
+                </select>
+                <button class="btn btn-primary" id="find-doctors" disabled>Find Doctors</button>
+            </div>
+
+            <!-- Step 2: Select Doctor -->
+            <div class="appointment-step" id="step-doctor">
+                <h3><i class="fas fa-user-md"></i> Select a Doctor</h3>
+                <select id="doctor-select"></select>
+                <button class="btn btn-outline" id="back-to-specialty">Back</button>
+                <button class="btn btn-primary" id="to-schedule">Next</button>
+            </div>
+
+            <!-- Step 3: Select Date & Time -->
+            <div class="appointment-step" id="step-schedule">
+                <h3><i class="fas fa-calendar-day"></i> Select Date</h3>
+                <input type="date" id="appointment-date" required>
+                <h3><i class="fas fa-clock"></i> Select Time</h3>
+                <select id="appointment-time">
+                    <option value="">Select Time</option>
+                    <option value="09:00 AM">09:00 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                </select>
+                <button class="btn btn-outline" id="back-to-doctor">Back</button>
+                <button class="btn btn-primary" id="confirm-appointment">Confirm</button>
+            </div>
+
+            <!-- Step 4: Confirmation -->
+            <div class="appointment-step" id="step-confirmation">
+                <h3><i class="fas fa-check-circle"></i> Appointment Confirmed!</h3>
+                <p><strong>Doctor:</strong> <span id="confirm-doctor"></span></p>
+                <p><strong>Specialty:</strong> <span id="confirm-specialty"></span></p>
+                <p><strong>Date:</strong> <span id="confirm-date"></span></p>
+                <p><strong>Time:</strong> <span id="confirm-time"></span></p>
+                <a href="home.html" class="btn btn-primary">Return to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const specialtySelect = document.getElementById('appointment-specialty');
+        const findDoctorsBtn = document.getElementById('find-doctors');
+        const doctorSelect = document.getElementById('doctor-select');
+
+        const steps = [
+            document.getElementById('step-specialty'),
+            document.getElementById('step-doctor'),
+            document.getElementById('step-schedule'),
+            document.getElementById('step-confirmation')
+        ];
+
+        specialtySelect.addEventListener('change', () => {
+            findDoctorsBtn.disabled = !specialtySelect.value;
+        });
+
+        findDoctorsBtn.addEventListener('click', () => {
+            const specialty = specialtySelect.value;
+            doctorSelect.innerHTML = `
+                <option value="">Select Doctor</option>
+                <option value="Dr. A - ${specialty}">Dr. A (${specialty})</option>
+                <option value="Dr. B - ${specialty}">Dr. B (${specialty})</option>
+            `;
+            showStep(1);
+        });
+
+        document.getElementById('back-to-specialty').addEventListener('click', () => showStep(0));
+
+        document.getElementById('to-schedule').addEventListener('click', () => {
+            if (doctorSelect.value) {
+                showStep(2);
+            } else {
+                alert('Please select a doctor.');
+            }
+        });
+
+        document.getElementById('back-to-doctor').addEventListener('click', () => showStep(1));
+
+        document.getElementById('confirm-appointment').addEventListener('click', () => {
+            const doctor = doctorSelect.value;
+            const specialty = specialtySelect.value;
+            const date = document.getElementById('appointment-date').value;
+            const time = document.getElementById('appointment-time').value;
+
+            if (!date || !time) {
+                alert('Please select date and time.');
+                return;
+            }
+
+            document.getElementById('confirm-doctor').textContent = doctor;
+            document.getElementById('confirm-specialty').textContent = specialty;
+            document.getElementById('confirm-date').textContent = date;
+            document.getElementById('confirm-time').textContent = time;
+
+            showStep(3);
+        });
+
+        function showStep(index) {
+            steps.forEach((step, i) => {
+                step.classList.toggle('active', i === index);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - MediMatch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            text-align: center;
+            color: #007BFF;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .link {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .link a:hover {
+            text-decoration: underline;
+        }
+    </style
+</head>
+<body>
+<div class="form-container">
+    <h2>Login to MediMatch</h2>
+    <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Email address" required>
+        <input type="password" id="loginPass" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <div class="link">
+        Don’t have an account? <a href="register.html">Register</a>
+    </div>
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById("loginEmail").value;
+    const pass = document.getElementById("loginPass").value;
+
+    const savedEmail = localStorage.getItem("registeredEmail");
+    const savedPass = localStorage.getItem("registeredPass");
+
+    if (email === savedEmail && pass === savedPass) {
+        alert("Login successful! Redirecting to home...");
+        window.location.href = "index.html";
+    } else {
+        alert("Invalid email or password. Try again!");
+    }
+});
+</script>
+</body>
+</html>
